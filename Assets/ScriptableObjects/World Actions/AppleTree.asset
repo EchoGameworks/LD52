@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e8eeb8ceb01474fae38bdbd0c0d013, type: 3}
   m_Name: AppleTree
   m_EditorClassIdentifier: 
-  ActionType: 0
-  Description: I'm going to...plant an Apple Tree
+  ActionType: 1
+  Description: On my next turn, I'm going to...plant an Apple Tree
   spawnObject: {fileID: 7056470489193346499, guid: bb749d2b74f5ce74490f3abfd552e528, type: 3}
   Impact: 0
   Value: 0

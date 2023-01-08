@@ -6,8 +6,10 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
     public static RoundManager instance;
-    public TextMeshProUGUI text;
-
+    public TextMeshProUGUI roundText;
+    public TextMeshProUGUI yourScoreText;
+    public TextMeshProUGUI worldScoreText;
+    public TextMeshProUGUI levelScoreText;
     void Awake()
     {
         //Singleton
@@ -37,6 +39,22 @@ public class RoundManager : MonoBehaviour
 
     public void UpdateRound(int round, int maxRounds)
     {
-        text.text = round + "/" + maxRounds;
+        roundText.text = round + "/" + maxRounds;
+    }
+
+    public void UpdateYourScore(int score)
+    {
+        yourScoreText.text = score.ToString();
+    }
+
+    public void UpdateWorldScore(int score)
+    {
+        worldScoreText.text = score.ToString();
+    }
+
+
+    public void UpdateLevelScore(int lvl)
+    {
+        levelScoreText.text = lvl.ToString();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Growable : ScriptableObject
 {
     public enum Impact { Negative, Neutral, Positive }
-    public enum ImpactProperty { Temperature, Sun, Water }
+    public enum ImpactProperty { Temperature, Sun, Water, Harvest }
 
     public string Name;
     public string Description;

@@ -24,6 +24,8 @@ public class ControllerManager : MonoBehaviour
 
     public List<TileManager> listTileManagers;
 
+
+
     void Awake()
     {
         //CurrentLevelContainer = null;
@@ -48,17 +50,20 @@ public class ControllerManager : MonoBehaviour
         Controller = GameManager.instance.Controller;
         Controller.Level.Click.performed += Click_performed;
         Controller.Level.Click.canceled += Click_canceled;
-    }
 
+    }
 
 
     private void Click_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        if (!LevelManager.instance.IsTutorialComplete) return;
         //print("click performed");
+        EndTurnButton.instance.PressEndTurn();
     }
 
     private void Click_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        if (!LevelManager.instance.IsTutorialComplete) return;
         Ray ray = cam.ScreenPointToRay(Controller.Level.MousePosition.ReadValue<Vector2>());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Action")))
@@ -71,7 +76,7 @@ public class ControllerManager : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Tile")))
         {
-            print("hit tile");
+            //print("hit tile");
             if (LevelManager.instance.CurrentEffect != null)
             {
                 if (LevelManager.instance.CurrentEffect.EffectArea == Effect.EffectAreas.Single)
@@ -79,6 +84,7 @@ public class ControllerManager : MonoBehaviour
                     TileManager tm = hit.transform.GetComponent<TileManager>();
                     LevelManager.instance.CurrentCard.TakeAction(tm);
                     tm.HideSingleTarget();
+                    return;
                 }
 
                 if (LevelManager.instance.CurrentEffect.EffectArea == Effect.EffectAreas.ThreeX)
@@ -94,8 +100,8 @@ public class ControllerManager : MonoBehaviour
                     tm.HideSingleTarget();
 
                 }
-                
-            }
+            }  
+            
         }
         else
         {
@@ -146,6 +152,7 @@ public class ControllerManager : MonoBehaviour
 
     void Update()
     {
+        //if (!LevelManager.instance.IsTutorialComplete) return;
         Ray ray = cam.ScreenPointToRay(Controller.Level.MousePosition.ReadValue<Vector2>());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f, LayerMask.GetMask("Tile")))
@@ -172,11 +179,11 @@ public class ControllerManager : MonoBehaviour
                 {
                     InfoBubble.instance.Show(CurrentTileManager.CurrentGrowableManager);
                     CurrentTileManager.Highlight();
-                    print(CurrentTileManager.CurrentGrowableManager.name);
+                    //print(CurrentTileManager.CurrentGrowableManager.name);
                 }
                 else
                 {
-                    print("no growable on tile");
+                    //print("no growable on tile");
                     InfoBubble.instance.Hide();
                 } 
                 

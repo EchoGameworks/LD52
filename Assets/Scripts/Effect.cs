@@ -7,7 +7,7 @@ using static Growable;
 public class Effect : ScriptableObject
 {
     public ImpactProperty ImpactPropery;
-    public enum EffectAreas { Single, FullRowCol, ThreeRowColl, TwoX, ThreeX, FiveX }
+    public enum EffectAreas { Single, FullRowCol, ThreeRowColl, TwoX, ThreeX, FiveX, All }
     public EffectAreas EffectArea;
     public int EffectValue;
     public string Description;

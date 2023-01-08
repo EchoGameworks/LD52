@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f642220c682d84da211c0aa9ac97e8, type: 3}
   m_Name: Water_Arid
   m_EditorClassIdentifier: 
-  Name: Air
+  Name: Arid
   Description: 
-  Sprite: {fileID: 21300000, guid: e5648b09e31f2824181a2ef6a752d643, type: 3}
+  Sprite: {fileID: 21300000, guid: 4b5760c11fbaa8541a24e26581b40102, type: 3}
   Effects:
   - {fileID: 11400000, guid: 7649890c11b4fd248be8670a5c93acf4, type: 2}

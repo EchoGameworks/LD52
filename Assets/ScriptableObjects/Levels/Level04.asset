@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0186bcdb8014440be8fedc971a63ee, type: 3}
+  m_Name: Level04
+  m_EditorClassIdentifier: 
+  MaxRounds: 6
+  Tiles:
+  - {fileID: 8729154067896395686, guid: 6392874befe4b2e478f00a99da80765c, type: 3}
+  - {fileID: 8729154067896395686, guid: b4b34c42975004b4e88c30119ee5c32e, type: 3}
+  - {fileID: 8729154067896395686, guid: 7a0cd37afa6c6cc49999dfa5859f72b2, type: 3}
+  Growables:
+  - {fileID: 7056470489193346499, guid: 208a1720234ddac46b1ba09c0a72ab52, type: 3}
+  - {fileID: 7056470489193346499, guid: f7478112252c0d84db1e18007521cc8b, type: 3}
+  - {fileID: 7056470489193346499, guid: cd5ebf08fa098724f81dc8bd67e5a80c, type: 3}
+  - {fileID: 7056470489193346499, guid: cba47557e6cb47d4cae58a8d55da827b, type: 3}
+  - {fileID: 7056470489193346499, guid: bb749d2b74f5ce74490f3abfd552e528, type: 3}
+  WorldActions:
+  - {fileID: 11400000, guid: 7026dc7a37870f741a665a2186729a7c, type: 2}
+  - {fileID: 11400000, guid: f7c621658f469e545bf205aab06ba1bc, type: 2}
+  - {fileID: 11400000, guid: 7026dc7a37870f741a665a2186729a7c, type: 2}
+  - {fileID: 11400000, guid: c152c84a46d265940930e73e5e0098b1, type: 2}
+  - {fileID: 11400000, guid: c152c84a46d265940930e73e5e0098b1, type: 2}
+  - {fileID: 11400000, guid: adc1c2511b14bdb429fff91759e70fe3, type: 2}
+  - {fileID: 11400000, guid: b49f7b1d07f4b48469f1851b4e01c558, type: 2}

@@ -15,4 +15,4 @@ MonoBehaviour:
   ImpactPropery: 0
   EffectArea: 4
   EffectValue: 1
-  Description: +1 Hotness in a 3x3 Area
+  Description: +1 Temperature in a 3x3 Area

@@ -4,12 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EndTurnButton : MonoBehaviour, IPointerUpHandler
+public class EndTurnButton : MonoBehaviour, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public static EndTurnButton instance;
 
     public TextMeshProUGUI CounterText;
+
+    public bool IsInEndTurnIcon;
 
     void Awake()
     {
@@ -28,7 +30,14 @@ public class EndTurnButton : MonoBehaviour, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        print("end turn");
+        
+
+    }
+
+    public void PressEndTurn()
+    {
+        print("next turn start");
+        if (LevelManager.instance.IsWorldTurn || !LevelManager.instance.IsTutorialComplete || !IsInEndTurnIcon) return;
         LevelManager.instance.EndTurn();
     }
 
@@ -47,5 +56,18 @@ public class EndTurnButton : MonoBehaviour, IPointerUpHandler
         {
             CounterText.text = count.ToString() + "/3";
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (LevelManager.instance.IsWorldTurn || !LevelManager.instance.IsTutorialComplete) return;
+        IsInEndTurnIcon = true;
+        LeanTween.scale(gameObject, Vector3.one * 1.2f, 0.3f).setEaseInOutCirc();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        IsInEndTurnIcon = false;
+        LeanTween.scale(gameObject, Vector3.one * 1.0f, 0.3f).setEaseInOutCirc();
     }
 }

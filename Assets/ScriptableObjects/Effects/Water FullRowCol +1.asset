@@ -15,4 +15,4 @@ MonoBehaviour:
   ImpactPropery: 2
   EffectArea: 1
   EffectValue: 1
-  Description: -1 Wetness across entire Row or Column
+  Description: +1 Water across entire Row or Column

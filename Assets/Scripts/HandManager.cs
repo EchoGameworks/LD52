@@ -14,12 +14,13 @@ public class HandManager : MonoBehaviour
     public Transform DrawDeck;
     public Transform Hand;
     public Transform DiscardDeck;
+    public Transform ActiveCardHolder;
 
     public CardManager activeCardManager;
 
     void Start()
     {
-        StartGame();
+        //StartGame();
     }
 
     public void StartGame()
@@ -27,6 +28,25 @@ public class HandManager : MonoBehaviour
         //DrawDeckCards = new List<CardManager>();
         //HandCards = new List<CardManager>();
         //DiscardDeckCards = new List<CardManager>();
+        for (int iChild = Hand.childCount - 1; iChild >= 0; iChild--)
+        {
+            Destroy(Hand.GetChild(iChild).gameObject);
+        }
+
+        for (int iChild = DiscardDeck.childCount - 1; iChild >= 0; iChild--)
+        {
+            Destroy(DiscardDeck.GetChild(iChild).gameObject);
+        }
+
+        for (int iChild = DrawDeck.childCount - 1; iChild >= 0; iChild--)
+        {
+            Destroy(DrawDeck.GetChild(iChild).gameObject);
+        }
+
+        for (int iChild = ActiveCardHolder.childCount - 1; iChild >= 0; iChild--)
+        {
+            Destroy(ActiveCardHolder.GetChild(iChild).gameObject);
+        }
 
         for (int i = 0; i < StartingCards.Count; i++)
         {
@@ -37,6 +57,7 @@ public class HandManager : MonoBehaviour
             cardGO.name = "Card - " + cm.Card.Name;
             cm.MoveToDraw(DrawDeck);
         }
+        
         //DrawCards(5);
 
         //LeanTween.delayedCall(3f, () => DiscardCardsFromHand(4));
@@ -52,7 +73,7 @@ public class HandManager : MonoBehaviour
             {
                 ShuffleDiscardToDeck();
             }
-            Transform cardToMove = DrawDeck.GetChild(0);
+            Transform cardToMove = DrawDeck.GetChild(Random.Range(0, DrawDeck.childCount));
             cardToMove.GetComponent<CardManager>().MoveToHand(Hand);
             numCardsToDraw--;
             

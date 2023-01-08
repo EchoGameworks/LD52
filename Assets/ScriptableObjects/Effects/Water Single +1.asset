@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactPropery: 2
   EffectArea: 0
-  EffectValue: 1
-  Description: +1 Wetness on a single Tile
+  EffectValue: 2
+  Description: +2 Water on a single Tile

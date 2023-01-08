@@ -54,7 +54,7 @@ public class ActionEvent : MonoBehaviour
         CurrentCard = currentCard;
         CurrentEffect = CurrentCard.CurrentEffect;
         //Icons
-        Sprite previewSprite;
+        Sprite previewSprite = null;
 
         switch (CurrentEffect.ImpactPropery)
         {
@@ -77,6 +77,7 @@ public class ActionEvent : MonoBehaviour
                     previewSprite = minusBright;
                 }
                 break;
+
            default:
                 if (CurrentEffect.EffectValue > 0)
                 {
@@ -120,6 +121,8 @@ public class ActionEvent : MonoBehaviour
     {
         if (CurrentEffect.EffectArea == Effect.EffectAreas.FullRowCol || CurrentEffect.EffectArea == Effect.EffectAreas.ThreeRowColl)
         {
+            int dist = 5;
+            if (CurrentEffect.EffectArea == Effect.EffectAreas.ThreeRowColl) dist = 3;
             for (int i = 0; i < 5; i++)
             {
                 if (PreviewSprites[i].gameObject.activeSelf)

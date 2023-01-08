@@ -154,6 +154,7 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!LevelManager.instance.IsTutorialComplete) return;
         Zoom();
     }
 
@@ -174,6 +175,8 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!LevelManager.instance.IsTutorialComplete) return;
+        if (LevelManager.instance.IsWorldTurn) return;
         MoveToActiveSlot();
     }
 

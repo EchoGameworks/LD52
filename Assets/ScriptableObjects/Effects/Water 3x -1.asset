@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactPropery: 2
   EffectArea: 4
-  EffectValue: 1
-  Description: -1 Wetness in a 3x3 Area
+  EffectValue: -1
+  Description: -1 Water in a 3x3 Area

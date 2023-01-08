@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InfoBubble : MonoBehaviour
@@ -13,6 +14,8 @@ public class InfoBubble : MonoBehaviour
     public RatingBar WaterBar;
 
     public bool IsShowing;
+    public TextMeshProUGUI Title;
+    public TextMeshProUGUI Description;
 
     void Awake()
     {
@@ -37,6 +40,8 @@ public class InfoBubble : MonoBehaviour
 
     public void Show(GrowableManager gm)
     {
+        Title.text = gm.CurrentGrowable.Name;
+        Description.text = gm.CurrentGrowable.Description;
         TemperatureBar.UpdateIcons(gm.CurrentGrowable.TempImpact, gm.CurrentTemperatureRating);
         SunBar.UpdateIcons(gm.CurrentGrowable.SunImpact, gm.CurrentSunRating);
         WaterBar.UpdateIcons(gm.CurrentGrowable.WaterImpact, gm.CurrentWaterRating);

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactPropery: 1
   EffectArea: 4
-  EffectValue: 1
-  Description: -1 Brightness in a 3x3 Area
+  EffectValue: -1
+  Description: -1 Sun Light  in a 3x3 Area

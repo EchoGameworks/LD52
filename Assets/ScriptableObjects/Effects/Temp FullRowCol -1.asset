@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactPropery: 0
   EffectArea: 1
-  EffectValue: 1
-  Description: -1 Hotness across entire Row or Column
+  EffectValue: -1
+  Description: -1 Temperature across entire Row or Column

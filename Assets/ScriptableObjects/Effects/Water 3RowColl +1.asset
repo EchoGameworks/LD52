@@ -15,4 +15,4 @@ MonoBehaviour:
   ImpactPropery: 2
   EffectArea: 2
   EffectValue: 1
-  Description: +1 Wetness across 3 Tiles from an edge
+  Description: +1 Water across 3 Tiles from an edge

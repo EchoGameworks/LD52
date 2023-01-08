@@ -12,16 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0186bcdb8014440be8fedc971a63ee, type: 3}
   m_Name: Level01
   m_EditorClassIdentifier: 
-  MaxRounds: 20
+  MaxRounds: 6
   Tiles:
   - {fileID: 8729154067896395686, guid: 6392874befe4b2e478f00a99da80765c, type: 3}
   - {fileID: 8729154067896395686, guid: b4b34c42975004b4e88c30119ee5c32e, type: 3}
   - {fileID: 8729154067896395686, guid: 7a0cd37afa6c6cc49999dfa5859f72b2, type: 3}
   Growables:
-  - {fileID: 7056470489193346499, guid: bb749d2b74f5ce74490f3abfd552e528, type: 3}
-  - {fileID: 7056470489193346499, guid: bb749d2b74f5ce74490f3abfd552e528, type: 3}
+  - {fileID: 7056470489193346499, guid: f7478112252c0d84db1e18007521cc8b, type: 3}
+  - {fileID: 7056470489193346499, guid: f7478112252c0d84db1e18007521cc8b, type: 3}
+  - {fileID: 7056470489193346499, guid: f7478112252c0d84db1e18007521cc8b, type: 3}
+  - {fileID: 7056470489193346499, guid: f7478112252c0d84db1e18007521cc8b, type: 3}
   - {fileID: 7056470489193346499, guid: bb749d2b74f5ce74490f3abfd552e528, type: 3}
   WorldActions:
   - {fileID: 11400000, guid: 7026dc7a37870f741a665a2186729a7c, type: 2}
-  - {fileID: 11400000, guid: f7c621658f469e545bf205aab06ba1bc, type: 2}
   - {fileID: 11400000, guid: 7026dc7a37870f741a665a2186729a7c, type: 2}
+  - {fileID: 11400000, guid: 4b6f4461140ca21499225982d9301455, type: 2}
+  - {fileID: 11400000, guid: c152c84a46d265940930e73e5e0098b1, type: 2}

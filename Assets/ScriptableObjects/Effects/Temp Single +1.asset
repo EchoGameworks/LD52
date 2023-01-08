@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactPropery: 0
   EffectArea: 0
-  EffectValue: 1
-  Description: +1 Hotness on a single Tile
+  EffectValue: 2
+  Description: +2 Temperature on a single Tile

@@ -23,16 +23,18 @@ public class ActionManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
 
-    void Start()
-    {
         arrowActions = new List<ActionEvent>();
-        foreach(Transform t in ArrowHolder)
+        foreach (Transform t in ArrowHolder)
         {
             arrowActions.Add(t.GetComponent<ActionEvent>());
         }
         HideArrow();
+    }
+
+    void Start()
+    {
+
     }
 
     public void UpdateArrows(CardManager cm)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rest
   m_EditorClassIdentifier: 
   ActionType: 0
-  Description: I'm going to...rest
+  Description: On my next turn, I'm going to...rest.<br>(Skips Worlds Turn)
   spawnObject: {fileID: 0}
   Impact: 0
   Value: 0

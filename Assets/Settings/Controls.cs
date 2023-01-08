@@ -44,6 +44,33 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""IconToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""284876ab-525d-4433-b3bb-49b4bd4966eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f543c98-0075-4a2d-ba79-91caff6807e6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3ad96d4-c8d3-43d2-9fca-4598f434fb31"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +95,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bff2045-0783-4efd-aca6-212fc8b1966a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IconToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""405d2da0-a164-4599-9663-f44ea6885435"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c315328-a74d-4eb8-bc42-e80429c3eb78"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +138,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Level = asset.FindActionMap("Level", throwIfNotFound: true);
         m_Level_Click = m_Level.FindAction("Click", throwIfNotFound: true);
         m_Level_MousePosition = m_Level.FindAction("MousePosition", throwIfNotFound: true);
+        m_Level_IconToggle = m_Level.FindAction("IconToggle", throwIfNotFound: true);
+        m_Level_Skip = m_Level.FindAction("Skip", throwIfNotFound: true);
+        m_Level_Restart = m_Level.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,12 +202,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private ILevelActions m_LevelActionsCallbackInterface;
     private readonly InputAction m_Level_Click;
     private readonly InputAction m_Level_MousePosition;
+    private readonly InputAction m_Level_IconToggle;
+    private readonly InputAction m_Level_Skip;
+    private readonly InputAction m_Level_Restart;
     public struct LevelActions
     {
         private @Controls m_Wrapper;
         public LevelActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_Level_Click;
         public InputAction @MousePosition => m_Wrapper.m_Level_MousePosition;
+        public InputAction @IconToggle => m_Wrapper.m_Level_IconToggle;
+        public InputAction @Skip => m_Wrapper.m_Level_Skip;
+        public InputAction @Restart => m_Wrapper.m_Level_Restart;
         public InputActionMap Get() { return m_Wrapper.m_Level; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -160,6 +229,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_LevelActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_LevelActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_LevelActionsCallbackInterface.OnMousePosition;
+                @IconToggle.started -= m_Wrapper.m_LevelActionsCallbackInterface.OnIconToggle;
+                @IconToggle.performed -= m_Wrapper.m_LevelActionsCallbackInterface.OnIconToggle;
+                @IconToggle.canceled -= m_Wrapper.m_LevelActionsCallbackInterface.OnIconToggle;
+                @Skip.started -= m_Wrapper.m_LevelActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_LevelActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_LevelActionsCallbackInterface.OnSkip;
+                @Restart.started -= m_Wrapper.m_LevelActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_LevelActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_LevelActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_LevelActionsCallbackInterface = instance;
             if (instance != null)
@@ -170,6 +248,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @IconToggle.started += instance.OnIconToggle;
+                @IconToggle.performed += instance.OnIconToggle;
+                @IconToggle.canceled += instance.OnIconToggle;
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -178,5 +265,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnIconToggle(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
