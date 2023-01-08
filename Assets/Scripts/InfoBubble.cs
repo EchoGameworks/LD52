@@ -12,6 +12,8 @@ public class InfoBubble : MonoBehaviour
     public RatingBar SunBar;
     public RatingBar WaterBar;
 
+    public bool IsShowing;
+
     void Awake()
     {
         //Singleton
@@ -35,16 +37,27 @@ public class InfoBubble : MonoBehaviour
 
     public void Show(GrowableManager gm)
     {
-        TemperatureBar.UpdateIcons(gm.CurrentGrowable.TempImpact);
-        LeanTween.value(gameObject, rt.anchoredPosition3D.x, 150f, 0.3f)
-            .setEaseInOutCirc()
-            .setOnUpdate((float val) => rt.anchoredPosition3D = Vector3.zero.ReplaceX(val));
+        TemperatureBar.UpdateIcons(gm.CurrentGrowable.TempImpact, gm.CurrentTemperatureRating);
+        SunBar.UpdateIcons(gm.CurrentGrowable.SunImpact, gm.CurrentSunRating);
+        WaterBar.UpdateIcons(gm.CurrentGrowable.WaterImpact, gm.CurrentWaterRating);
+        if (!IsShowing)
+        {
+            IsShowing = true;
+            LeanTween.value(gameObject, rt.anchoredPosition3D.x, 150f, 0.3f)
+                .setEaseInOutCirc()
+                .setOnUpdate((float val) => rt.anchoredPosition3D = Vector3.zero.ReplaceX(val));
+        }
+
     }
 
     public void Hide()
     {
-        LeanTween.value(gameObject, rt.anchoredPosition3D.x, -200f, 0.3f)
-            .setEaseInOutCirc()
-            .setOnUpdate((float val) => rt.anchoredPosition3D = Vector3.zero.ReplaceX(val));
+        if (IsShowing)
+        {
+            IsShowing = false;
+            LeanTween.value(gameObject, rt.anchoredPosition3D.x, -200f, 0.3f)
+                .setEaseInOutCirc()
+                .setOnUpdate((float val) => rt.anchoredPosition3D = Vector3.zero.ReplaceX(val));
+        }
     }
 }

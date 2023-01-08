@@ -35,4 +35,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void GameOver()
+    {
+        print("GAME OVER");
+    }
+
+    public void Win()
+    {
+
+    }
 }

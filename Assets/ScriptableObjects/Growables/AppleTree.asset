@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: AppleTree
   m_EditorClassIdentifier: 
   Name: Apple Tree
-  Description: Keeps Multiple Doctors Away
+  Description: Keeps Doctors Away
   TempImpact: 000000000100000001000000020000000200000001000000
   SunImpact: 010000000100000002000000020000000100000001000000
   WaterImpact: 000000000000000001000000020000000200000002000000
+  ImpactMultiplier: 1
   Sprite: {fileID: 0}

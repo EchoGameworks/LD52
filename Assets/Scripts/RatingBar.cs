@@ -16,7 +16,7 @@ public class RatingBar : MonoBehaviour
     public Sprite neutralSprite;
 
 
-    public void UpdateIcons(List<Impact> impacts)
+    public void UpdateIcons(List<Impact> impacts, int curRating)
     {
         for(int i = 0; i < impacts.Count; i++)
         {
@@ -31,9 +31,10 @@ public class RatingBar : MonoBehaviour
                 default:
                     Ratings[i].sprite = neutralSprite;
                     break;
-            }
-            
+            }            
         }
+
+        MoveHighlightToRating(curRating);
     }
 
     public void MoveHighlightToRating(int index)
